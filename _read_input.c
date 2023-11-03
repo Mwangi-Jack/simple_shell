@@ -26,5 +26,5 @@ void _read_input(char *comm, size_t size)
 			exit(EXIT_FAILURE);
 		}
 	}
-	comm[strcspn(comm, "\n")] == '\0';
+	comm[strcspn(comm, "\n")] = '\0';
 }

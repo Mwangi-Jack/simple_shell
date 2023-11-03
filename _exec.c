@@ -10,7 +10,7 @@
  * Return: returns nothing (void)
 */
 
-void _exec(const char *comm)
+void _exec(char *comm)
 {
 	pid_t child_pid = fork();
 
@@ -20,9 +20,22 @@ void _exec(const char *comm)
 		exit(EXIT_FAILURE);
 	} else if (child_pid == 0)
 	{
-		execlp(comm, comm, (char *)NULL);
-		perror("execlp");
+		char *args[120];
+		int count = 0;
+		char *token = strtok(comm, " ");
+
+		while (token != NULL)
+		{
+			args[count++] = token;
+			token = strtok(NULL, " ");
+		}
+		args[count] = NULL;
+
+		execvp(args[0], args);
+
+		_print("Error executing command.\n");
 		exit(EXIT_FAILURE);
+
 	} else
 	{
 		wait(NULL);
