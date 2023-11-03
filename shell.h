@@ -9,7 +9,9 @@
 #include <stdlib.h>
 
 
+void disp_prompt(void);
 void _print(const char *str);
+void _read_input(char *comm, size_t size);
 void _exec(const char *comm);
 
 #endif

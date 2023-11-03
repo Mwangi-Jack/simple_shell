@@ -13,9 +13,14 @@
 
 int main(int  __attribute__((unused)) argc, char  __attribute__((unused)) *argv[])
 {
+	char comm[100];
 
 	while (true)
-		_print("$ ");
+	{
+		disp_prompt();
+		_read_input(comm, sizeof(comm));
+		_exec(comm);
+	}
 
 	return (0);
 }

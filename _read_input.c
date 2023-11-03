@@ -22,6 +22,7 @@ void _read_input(char *comm, size_t size)
 		} else
 		{
 			perror("fgets");
+			_print("Error while reading input. \n");
 			exit(EXIT_FAILURE);
 		}
 	}
