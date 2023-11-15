@@ -13,5 +13,6 @@ void disp_prompt(void);
 void _print(const char *str);
 void _read_input(char *comm, size_t size);
 void _exec(char *comm);
+char *_strcat(char *dest, char *src);
 
 #endif

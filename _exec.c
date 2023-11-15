@@ -15,6 +15,8 @@ void _exec(char *comm)
 	pid_t child_pid = fork();
 	char *_exit = "exit";
 
+
+
 	if (strcmp(_exit, comm) == 0)
 	{
 		exit(0);
@@ -30,6 +32,9 @@ void _exec(char *comm)
 			int count = 0;
 			char *token = strtok(comm, " ");
 
+
+			char *env[] = {NULL};
+
 			while (token != NULL)
 			{
 				args[count++] = token;
@@ -37,7 +42,12 @@ void _exec(char *comm)
 			}
 			args[count] = NULL;
 
-			execvp(args[0], args);
+
+			if (execve(comm, args, env) == -1)
+			{
+				perror("execve");
+				exit(EXIT_FAILURE);
+			}
 
 			_print("command not found.\n");
 			exit(EXIT_FAILURE);

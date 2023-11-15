@@ -13,6 +13,7 @@ int main(void)
 
 	while (true)
 	{
+		disp_prompt();
 		_read_input(comm, sizeof(comm));
 		_exec(comm);
 	}
