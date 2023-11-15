@@ -48,6 +48,4 @@ void _exec(char *comm)
 		}
 
 	}
-
-
 }

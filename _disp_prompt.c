@@ -10,5 +10,5 @@
 
 void disp_prompt(void)
 {
-	printf("$ ");
+	_print("$ ");
 }

@@ -4,20 +4,15 @@
 /**
  * main - Entry Point
  *
- * @argc: argument count
- * @argv: argument vector
- * @env: environment variables
- *
  * Return: Always Success (0)
 */
 
-int main(int  __attribute__((unused)) argc, char  __attribute__((unused)) *argv[])
+int main(void)
 {
-	char comm[100];
+	char comm[1024];
 
 	while (true)
 	{
-		disp_prompt();
 		_read_input(comm, sizeof(comm));
 		_exec(comm);
 	}
